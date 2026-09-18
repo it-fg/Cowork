@@ -131,6 +131,13 @@
     border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary);
     border-radius: 8px; padding: 8px 14px; font-size: 13px; cursor: pointer;
   }
+  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .update-badge {
+    font-weight: 700; font-size: 12.5px; padding: 7px 14px; border-radius: 999px;
+    white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,.18);
+  }
+  .update-badge.draft { background: #fff3cd; border: 2px solid #d97706; color: #7c2d12; }
+  .update-badge.live { background: var(--brand-gold); color: #1a1a1a; border: 2px solid var(--brand-accent); }
 
   .kpi-row {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px;
@@ -282,7 +289,10 @@
         <p class="subtitle">Viettel IDC · CMC TS · FPT IS — Cấu hình tham chiếu 16 vCPU / 128GB RAM / 900GB SSD / 1 IP · Ban Chuyển đổi số, FG H.O · Cập nhật 24/08/2026</p>
       </div>
     </div>
-    <button class="theme-toggle" id="themeToggle" type="button">🌙 Chế độ tối</button>
+    <div class="header-right">
+      <div class="update-badge draft">🟡 BẢN NHÁP — Cập nhật lúc 14:57, 18/09/2026 (chờ duyệt)</div>
+      <button class="theme-toggle" id="themeToggle" type="button">🌙 Chế độ tối</button>
+    </div>
   </header>
 
   <section class="kpi-row">
@@ -293,13 +303,13 @@
     </div>
     <div class="kpi">
       <div class="label">Đắt nhất / tháng (đã VAT, quy đổi tương đương)</div>
-      <div class="value s1">20.029.900 đ</div>
-      <div class="sub">Viettel IDC</div>
+      <div class="value s2">20.790.000 đ</div>
+      <div class="sub">CMC TS (báo giá mới 20/08/2026)</div>
     </div>
     <div class="kpi">
       <div class="label">Chênh lệch cao – thấp / tháng</div>
-      <div class="value">3.362.150 đ</div>
-      <div class="sub">≈ 20,2% so với mức thấp nhất</div>
+      <div class="value">4.122.250 đ</div>
+      <div class="sub">≈ 24,7% so với mức thấp nhất</div>
     </div>
     <div class="kpi">
       <div class="label">SLA cam kết cao nhất</div>
@@ -319,7 +329,7 @@
         </button>
         <button type="button" class="vendor-btn" data-vendor="cmc">
           <span class="dot" style="background: var(--series-2)"></span>
-          <span class="vb-text">CMC TS<span class="vb-sub">Xem báo giá gốc — 20/07/2026</span></span>
+          <span class="vb-text">CMC TS<span class="vb-sub">Xem báo giá gốc — 20/08/2026 (đã thay báo giá 20/07)</span></span>
         </button>
         <button type="button" class="vendor-btn" data-vendor="fpt">
           <span class="dot" style="background: var(--series-3)"></span>
@@ -375,14 +385,14 @@
   <section class="grid">
     <div class="card full rec-block">
       <h2>Khuyến nghị tổng hợp</h2>
-      <p><span class="rec-title">Về giá:</span> FPT IS vừa gửi báo giá điều chỉnh ngày 29/07/2026, hạ chi phí hàng tháng xuống 16.667.750 đ (giảm ~11,5% so với báo giá 28/07), nới rộng khoảng cách rẻ nhất trong 3 nhà cung cấp lên khoảng 20,2% so với Viettel IDC (đắt nhất). Đổi lại, chi phí license phần mềm trả 1 lần tăng lên 34 triệu đ (thêm dòng SQL Server 2025 CAL 6,5 triệu đ chưa từng có ở báo giá trước). CMC TS vẫn có giá gói hàng tháng cao nhất song đã bao gồm sẵn EIP + VPC.</p>
+      <p><span class="rec-title">Về giá:</span> FPT IS vừa gửi báo giá điều chỉnh ngày 29/07/2026, hạ chi phí hàng tháng xuống 16.667.750 đ (giảm ~11,5% so với báo giá 28/07), nới rộng khoảng cách rẻ nhất trong 3 nhà cung cấp lên khoảng 20,2% so với Viettel IDC (đắt nhất). Đổi lại, chi phí license phần mềm trả 1 lần tăng lên 34 triệu đ (thêm dòng SQL Server 2025 CAL 6,5 triệu đ chưa từng có ở báo giá trước). CMC TS vẫn có giá gói hàng tháng cao nhất song đã bao gồm sẵn EIP + VPC. Đáng chú ý, CMC TS vừa gửi báo giá điều chỉnh ngày 20/08/2026, tăng giá gói dịch vụ từ 17.900.000 đ lên 18.900.000 đ/tháng (+5,6%), đưa tổng chi phí hàng tháng (gồm VAT) lên 20.790.000 đ — vượt Viettel IDC (20.029.900 đ) để trở thành nhà cung cấp đắt nhất trong 3 đơn vị; khoảng cách rẻ nhất–đắt nhất theo đó nới rộng lên khoảng 24,7%. ⚠️ Báo giá PDF mới của CMC TS có điểm chưa khớp giữa cột Đơn giá/tháng (17.900.000 đ) và Thành tiền/tháng (18.900.000 đ) — cần CMC TS xác nhận lại trước khi chốt số liệu chính thức.</p>
       <p><span class="rec-title">Về kỹ thuật:</span> CMC TS vượt trội về băng thông (500/30 Mbps) và IOPS (15.000), phù hợp nếu ưu tiên hiệu năng và lưu lượng truyền tải cao.</p>
       <p><span class="rec-title">Về SLA & hợp đồng:</span> FPT IS vẫn cam kết uptime cao nhất (99,99%) nhưng điều khoản hợp đồng trong báo giá mới đã <strong>siết lại đáng kể</strong>: từ "tùy chọn 12/24/36 tháng, thanh toán 03/06/12 tháng" chuyển thành <strong>cố định 36 tháng, trả trước 12 tháng</strong> — giảm tính linh hoạt, cần cân nhắc kỹ trước khi chốt vì đây là cam kết dài hạn. CMC TS cam kết tối thiểu 99,95% kèm điều khoản bồi thường. Viettel IDC chưa nêu SLA cụ thể trong báo giá được cung cấp.</p>
-      <p><span class="rec-title">Khuyến nghị:</span> làm rõ với FPT IS lý do điều chỉnh giá và điều khoản hợp đồng chỉ trong 1 ngày (28/07 → 29/07), xác nhận có được quay lại tùy chọn thời hạn ngắn hơn hay không nếu ưu tiên linh hoạt hơn giá. Đồng thời làm việc thêm với cả 3 nhà cung cấp để thống nhất SLA và làm rõ cấu phần license SQL Server trước khi ra quyết định cuối cùng. Chi tiết đầy đủ xem sheet "NhanXet" trong file Excel đính kèm.</p>
+      <p><span class="rec-title">Khuyến nghị:</span> làm rõ với FPT IS lý do điều chỉnh giá và điều khoản hợp đồng chỉ trong 1 ngày (28/07 → 29/07), xác nhận có được quay lại tùy chọn thời hạn ngắn hơn hay không nếu ưu tiên linh hoạt hơn giá. Đồng thời làm việc thêm với cả 3 nhà cung cấp để thống nhất SLA, làm rõ cấu phần license SQL Server, và đề nghị CMC TS xác nhận lại chênh lệch Đơn giá/Thành tiền trong báo giá 20/08/2026 trước khi ra quyết định cuối cùng. Chi tiết đầy đủ xem sheet "NhanXet" trong file Excel đính kèm.</p>
     </div>
   </section>
 
-  <p class="footnote">Nguồn: 3 báo giá gốc (Viettel IDC 22/07/2026, CMC TS 20/07/2026, FPT IS 29/07/2026 — thay thế báo giá 28/07/2026) — tổng hợp trong SoSanhBaoGiaCloud-20Aug26.xlsx</p>
+  <p class="footnote">Nguồn: Viettel IDC 22/07/2026, CMC TS 20/07/2026 và cập nhật 20/08/2026, FPT IS 29/07/2026 (thay thế báo giá 28/07/2026) — tổng hợp trong SoSanhBaoGiaCloud-20Aug26.xlsx và "CMC Báo Giá Cloud Server - FIT 200826.pdf". ⚠️ BẢN NHÁP — chờ IT xác nhận trước khi publish chính thức lên report.fitgroup.com.vn.</p>
 </div>
 
 <div class="tooltip" id="tooltip"></div>
@@ -520,7 +530,7 @@
     ];
     var rows = [
       { name: "Viettel IDC", base: 16000000, windows: 600000, ip: 0, backup: 835000, firewall: 774000 },
-      { name: "CMC TS",      base: 17900000, windows: 0,      ip: 0, backup: 0,      firewall: 0 },
+      { name: "CMC TS",      base: 18900000, windows: 0,      ip: 0,      backup: 0,      firewall: 0 },
       { name: "FPT IS",      base: 13255000, windows: 635000, ip: 100000, backup: 1162500, firewall: 0 }
     ];
 
@@ -654,14 +664,14 @@
     // Chart 1: monthly total
     verticalBarChart(document.getElementById("cardMonthly"), [
       { name: "Viettel IDC", value: 20029900, color: "var(--series-1)" },
-      { name: "CMC TS",      value: 19690000, color: "var(--series-2)" },
+      { name: "CMC TS",      value: 20790000, color: "var(--series-2)" },
       { name: "FPT IS",      value: 16667750, color: "var(--series-3)" }
     ], { height: 230 });
 
     // Chart 2: yearly total (Năm 1 - riêng FPT IS theo hợp đồng 36 tháng cố định)
     verticalBarChart(document.getElementById("cardYearly"), [
       { name: "Viettel IDC", value: 275146800, color: "var(--series-1)" },
-      { name: "CMC TS",      value: 236280000, color: "var(--series-2)" },
+      { name: "CMC TS",      value: 249480000, color: "var(--series-2)" },
       { name: "FPT IS",      value: 234013000, color: "var(--series-3)" }
     ], { height: 230 });
 
@@ -747,14 +757,14 @@
     },
     cmc: {
       title: "CMC TS (CMC Technology and Solution Company Limited)",
-      sub: "BẢNG GIÁ — Hà Nội, ngày 20 tháng 07 năm 2026 — Kính gửi: FIT Group — Đơn hàng: Cung cấp hạ tầng cloud",
+      sub: "BẢNG GIÁ — Hà Nội, ngày 20 tháng 08 năm 2026 — Kính gửi: FIT Group — Đơn hàng: Cung cấp hạ tầng cloud",
       sections: [
         {
           heading: "I. Gói dịch vụ cloud",
           type: "table",
           cols: ["Tên sản phẩm", "SL", "ĐVT", "Đơn giá/tháng", "Thành tiền/tháng"],
           rows: [
-            ["Gói dịch vụ cloud (Server App: CPU 16 Core, RAM 128GB, SSD 900GB, EIP 01, VPC 01)", "1", "Gói", "17.900.000 đ", "17.900.000 đ"]
+            ["Gói dịch vụ cloud (Server App: CPU 16 Core, RAM 128GB, SSD 900GB, EIP 01, VPC 01)", "1", "Gói", "17.900.000 đ", "18.900.000 đ"]
           ]
         },
         {
@@ -762,10 +772,10 @@
           type: "table",
           cols: ["Khoản mục", "Số tiền"],
           rows: [
-            ["Tổng giá (VND/tháng)", "17.900.000 đ"],
-            ["Thành tiền 12 tháng (chưa VAT)", "214.800.000 đ"],
-            ["VAT (10%)", "21.480.000 đ"],
-            ["Tổng giá (gồm VAT)", "236.280.000 đ"]
+            ["Tổng giá (VND/tháng)", "18.900.000 đ"],
+            ["Thành tiền 12 tháng (chưa VAT)", "226.800.000 đ"],
+            ["VAT (10%)", "22.680.000 đ"],
+            ["Tổng giá (gồm VAT)", "249.480.000 đ"]
           ],
           totalRowIndex: 3
         },
@@ -777,7 +787,7 @@
             ["CPU", "1", "Core", "180.000 đ", "180.000 đ"],
             ["RAM", "1", "GB", "85.000 đ", "85.000 đ"],
             ["SSD", "10", "GB", "3.200 đ", "32.000 đ"],
-            ["HDD = backup", "10", "Gb", "1.100 đ", "11.000 đ"],
+            ["HDD = backup", "10", "Gb", "2.100 đ", "21.000 đ"],
             ["IP", "1", "IP", "120.000 đ", "120.000 đ"],
             ["VPC", "1", "License", "440.000 đ", "440.000 đ"]
           ]
@@ -801,7 +811,7 @@
           ]
         }
       ],
-      note: "Báo giá có hiệu lực trong vòng 30 ngày kể từ ngày báo giá.",
+      note: "⚠️ Bảng báo giá gốc (PDF, ký ngày 20/08/2026) ghi Đơn giá/tháng là 17.900.000 đ nhưng Thành tiền/tháng lại ghi 18.900.000 đ (chênh lệch 1.000.000 đ) — cần IT xác nhận lại với CMC TS trước khi publish chính thức. Báo giá có hiệu lực trong vòng 30 ngày kể từ ngày báo giá.",
       contact: "Nguyễn Thị Thu Phương — Account Manager — 0332 022 348 — nttphuong4@cmc.com.vn"
     },
     fpt: {
